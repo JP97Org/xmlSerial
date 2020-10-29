@@ -6,7 +6,6 @@ import org.jojo.flow.model.api.IXMLSerialTransform;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.XStreamException;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 public class XMLSerialTransformer implements IXMLSerialTransform {
     private XStream xStream;
@@ -38,7 +37,7 @@ public class XMLSerialTransformer implements IXMLSerialTransform {
     }
     
     private void initXStream() {
-        this.xStream = new XStream(new StaxDriver());
+        this.xStream = new XStream();
         XStream.setupDefaultSecurity(this.xStream);
         this.xStream.allowTypesByRegExp(new String[] { ".*" });
     }
